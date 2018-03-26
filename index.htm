@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+			<!-- mqueries start -->			
+			<link rel="stylesheet" media="(orientation: portrait)" href="mobile.css">
+			<link rel="stylesheet" media="(orientation: landscape)" href="style.css">
+			<!-- mqueries end -->
+			<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	        <title>Home -- Welcome to the internet</title>
+	        <link rel="shortcut icon" type="image/png" href="icons/favicon.png"/>
+<!--	        <link rel="stylesheet" type="text/css" href="style.css"> -->
+	        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	        <script type="text/javascript">
+				var sfx = function() {
+				var now = new Date();
+				var n = now.getHours();		
+				if ( n >= 7 && n <= 11 ) {
+					var sound1 = new Audio('ohayou1.mp3');
+					sound1.play();
+				} else if ( n >= 12 && n <= 17) {
+					var sound2 = new Audio('konnichiwa1.mp3');
+					sound2.play();
+				} else if ( n >= 18 && n <= 24 ) {
+					var sound3 = new Audio('konbanwa1.mp3');
+					sound3.play();
+				}  else if ( n >= 0 && n <= 6 ) {
+					var sound3 = new Audio('konbanwa1.mp3');
+					sound3.play();
+				} 
+			}
+			sfx();
+	        </script>
+	        <script type="text/javascript">
+		        $(document).ready(function() {
+			$('.button').click(function(e) {
+				e.preventDefault();
+				setContent($(this));
+			});
+
+			$('.button.active').length && setContent($('.button.active'));
+
+			function setContent($el) {
+				$('.button').removeClass('active');
+				$('.box').hide();
+				$el.addClass('active');
+				$($el.data('rel')).show();
+			}
+
+			function changeBg() {
+				var now = new Date();
+				var n = now.getHours();
+				
+				if ( n >= 7 && n <= 11 ) {
+				    picture = "url('background/background01.png')";
+					color1 = "#ffafd6";
+					color2 = "#453744";
+					message="おはよう"
+				} else if ( n >= 12 && n <= 17 ) {
+					picture = "url('background/background02.png')";
+					color1 = "#008dc4";
+					color2 = "#453744";
+					message=" こんにちは"
+				} else if ( n >= 18 && n <= 23 ) {
+					picture = "url('background/background03.png')";
+					color1 = "#2be5a0";
+					color2 = "#453744";
+					message=" こんばんは"
+				} else if ( n >= 0 && n <= 6 ) {
+					picture = "url('background/background04.png')";
+					color1 = "#2be5a0";
+					color2 = "#453744";
+					message=" こんばんは"
+				} 
+				document.getElementById("container").style.background = picture;
+				document.getElementById("border").style.background = color1;
+				document.getElementById('box1').style.color = document.getElementById('box2').style.color = document.getElementById('box3').style.color = color2;
+				document.getElementById("details").style.background = color2;
+				document.getElementById("message").innerHTML = message;
+			 }
+			 changeBg();
+		        });
+	        </script>
+
+	</head>
+	<body>
+	        	<div id="container">
+		              <div class="sidebar">
+		                              <div id="border"></div>
+		                              <button id="first-btn" class="button active" data-rel="#box1">01</button>
+			                              <div class="box" id="box1">
+										  <h1>Consume</h1>
+				                            <a href="https://www.facebook.com/">○ Facebook</a>
+				                            <a href="http://twitter.com/">○ Twitter</a>
+				                            <a href="https://amazon.com">○ Amazon</a>
+				                            <a href="https://mercadolibre.com.uy">○ MercadoShit</a>
+				                            <a href="https://mail.google.com/mail/u/0/#inbox">○ Gmail</a>
+										    <a href="https://www.youtube.com/">○ Youtube</a>
+				                            <a href="https://soundcloud.com/stream">○ Soundcloud</a>
+				                            <a href="http://open.spotify.com">○ Spotify</a>
+				                            <a href="https://bandcamp.com/">○ Bandcamp</a>
+				                            <a href="https://www.tumblr.com/dashboard">○ Tumblr</a>
+				                            <a href="http://www.pixiv.net/">○ Pixiv</a>
+				                            <a href="http://www.deviantart.com/browse/all/">○ Deviantart</a>
+				                            <a href="http://danbooru.donmai.us/">○ Danbooru</a>
+				                            <a href="http://konachan.com">○ Konachan</a>
+			                              </div>
+		                              <button id="second-btn" class="button" data-rel="#box2">02</button>
+			                              <div class="box" id="box2">
+			                                	<h1>Yotsuba</h1>
+						<a href="http://boards.4chan.org/g/">○ Tech</a>
+						<a href="http://boards.4chan.org/a/">○ Animu</a>
+						<a href="http://boards.4chan.org/w/">○ Weeb Walls</a>
+						<a href="http://boards.4chan.org/wg/">○ Rice and Walls</a>
+						<a href="http://boards.4chan.org/v/">○ Vidyagaems</a>
+						<a href="http://boards.4chan.org/vg/">○ Vidya Generals</a>
+						<a href="http://boards.4chan.org/d/">○ Dickgrills</a>
+			                            </div>
+		                            <button id="third-btn" class="button" data-rel="#box3">03</button>
+			                            <div class="box" id="box3">
+			                                           <h1>アニメ</h1>
+				                            <a href="http://exhentai.org/">○ Panda</a>
+				                            <a href="https://manga.madokami.al/">○ Madokami</a>
+				                            <a href="https://www.nyaa.si/">○ Nyaa</a>
+				                            <a href="http://mangastream.com/">○ Mangastream</a>
+				                            <a href=""></a>
+			                              </div>	                            
+		             	</div>
+	                           <div class="form">
+	                           		<input  id="searchbox" name="q" type="text" autocomplete="off" class="cleardefault" maxlength="100"   placeholder="search engine ..." size="17" autofocus="autofocus" />
+	                           		<input type="submit" id="image-button" value=""></input>
+	                           </div>
+			<div id="details">
+				<div id="weather">
+					<h2 id="description"></h2>
+					<h3 id="temp_curr"></h3>
+				</div> 
+			</div>
+			<div id="message"></div>
+	        	</div>
+	</body>
+	<script type="text/javascript" src="js/search.js"></script>
+  	<script src="js/weather.js"></script>
+<!-- <embed src="ohayou1.mp3" autostart="false" width="0" height="0" id="sound1" enablejavascript="true"> -->
+<!-- <embed src="konnichiwa1.mp3" autostart="false" width="0" height="0" id="sound2" enablejavascript="true"> -->
+<!-- <embed src="konbanwa1.mp3" autostart="false" width="0" height="0" id="sound3" enablejavascript="true"> -->
+</html>
